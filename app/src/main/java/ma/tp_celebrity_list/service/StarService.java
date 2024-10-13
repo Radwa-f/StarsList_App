@@ -24,12 +24,12 @@ public class StarService implements IDao<Star> {
     @Override
     public boolean update(Star o) {
         for (int i = 0; i < stars.size(); i++) {
-            if (stars.get(i).getId() == o.getId()) { // Use getId() instead of getStar()
+            if (stars.get(i).getId() == o.getId()) {
                 stars.set(i, o);
-                return true; // Return true immediately after updating
+                return true;
             }
         }
-        return false; // If not found, return false
+        return false;
     }
 
     @Override

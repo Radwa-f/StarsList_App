@@ -54,6 +54,7 @@ public class StarAdapter extends RecyclerView.Adapter<StarAdapter.StarViewHolder
     @NonNull
     @Override
     public StarViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        //Crée et retourne une nouvelle instance de ViewHolder. Gonfle la mise en page XML pour un nouvel élément de la liste.
         View v = LayoutInflater.from(this.context).inflate(R.layout.star_item, viewGroup, false);
         final StarViewHolder holder = new StarViewHolder(v);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +62,7 @@ public class StarAdapter extends RecyclerView.Adapter<StarAdapter.StarViewHolder
             public void onClick(View v) {
                 View popup = LayoutInflater.from(context).inflate(R.layout.star_edit, null,
                         false);
+                //inflate(): Crée une instance de vue à partir d'un fichier XML de mise en page, permettant de manipuler les vues dans le code.
                 final ImageView img = popup.findViewById(R.id.img);
                 final RatingBar bar = popup.findViewById(R.id.ratingBar);
                 final TextView idss = popup.findViewById(R.id.idss);
@@ -94,6 +96,7 @@ public class StarAdapter extends RecyclerView.Adapter<StarAdapter.StarViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull StarViewHolder starViewHolder, int i) {
+        //Lie les données d'un élément spécifique aux vues dans le ViewHolder. Affiche les informations (nom, image, note) à l'emplacement donné dans la liste.
         Log.d(TAG, "onBindView call ! " + i);
         Glide.with(context)
                 .asBitmap()
@@ -107,6 +110,7 @@ public class StarAdapter extends RecyclerView.Adapter<StarAdapter.StarViewHolder
 
     @Override
     public int getItemCount() {
+        //Retourne le nombre total d'éléments à afficher dans le RecyclerView. Informe le RecyclerView combien d'éléments il doit rendre.
         return starsFilter.size();
     }
 
@@ -116,6 +120,7 @@ public class StarAdapter extends RecyclerView.Adapter<StarAdapter.StarViewHolder
     }
 
     public class StarViewHolder extends RecyclerView.ViewHolder {
+        //Représente un élément de la liste des étoiles. Contient des références aux vues pour afficher les informations (image, nom, note).
         TextView idss;
         ImageView img;
         TextView name;

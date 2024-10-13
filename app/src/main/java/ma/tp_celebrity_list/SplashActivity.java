@@ -16,8 +16,13 @@ public class SplashActivity extends AppCompatActivity {
 
       ImageView logo = findViewById(R.id.logo);
 
+      // Faire tourner le logo de 360 degrés en 2000 millisecondes
       logo.animate().rotation(360f).setDuration(2000);
+
+      // Réduire le logo à 50% de sa taille initiale (échelle X et Y) en 3000 millisecondes
       logo.animate().scaleX(0.5f).scaleY(0.5f).setDuration(3000);
+
+      // Rendre le logo complètement transparent (alpha 0) en 6000 millisecondes
       logo.animate().alpha(0f).setDuration(6000);
 
       Thread t = new Thread() {
